@@ -1,0 +1,8 @@
+# various dev files to not include in git
+serviceindex.json
+serviceindex.log
+django.dump.1719417916copy.sql
+copydata.sql
+
+# the repo this docker uses
+Operations_ServiceIndex_Django/

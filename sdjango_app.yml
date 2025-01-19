@@ -1,0 +1,49 @@
+services:
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile.postgres
+    restart: always
+    environment:
+      DB_HOST: db
+      DB_NAME: serviceindex1
+      DB_USER: serviceindex_django
+      DB_PASSWORD: Bbfsjrvneru&fg
+    networks:
+      - sidjango_app
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db_manuals/db_init.sh:/docker-entrypoint-initdb.d/db_init.sh
+    command: ["postgres", "-c", "shared_preload_libraries=pg_stat_statements"]
+
+  django:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      APP_CONFIG: /conf/serviceindex.json
+      DB_HOST: db
+      DB_DATABASE: serviceindex1
+      DJANGO_USER: serviceindex_django
+      DJANGO_PASS: "Bbfsjrvneru&fg"
+    volumes:
+      - /Users/jelambeadmin/Documents/access-ops/sidjango_app/Operations_ServiceIndex_Django:/Operations_ServiceIndex_Django
+      # - ./Pipfile:/tags/Pipfile
+      # - ./Pipfile.lock:/tags/Pipfile.lock
+      - /Users/jelambeadmin/Documents/access-ops/sidjango_app/conf:/conf # Mount the si repo
+    depends_on:
+      - db
+    networks:
+      - sidjango_app
+    container_name: django
+
+volumes:
+  pgdata:  # Named volume for PostgreSQL data persistence
+
+networks:
+  sidjango_app:

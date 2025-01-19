@@ -1,0 +1,24 @@
+# Dockerfile.postgres
+FROM postgres:14
+
+ENV POSTGRES_DB=serviceindex1
+ENV POSTGRES_USER=postgres
+ENV POSTGRES_PASSWORD=negndindign4nv
+
+# Install postgresql-contrib package to get pg_stat_statements and other useful extensions
+RUN apt-get update && \
+    apt-get install -y vim && \
+    apt-get install -y postgresql-contrib && \
+    rm -rf /var/lib/apt/lists/*
+
+# Ensure the pg_stat_statements extension is available
+RUN echo "shared_preload_libraries = 'pg_stat_statements'" >> /usr/share/postgresql/postgresql.conf.sample
+
+COPY db_manuals /db_manuals
+RUN chmod +x /db_manuals
+
+# Expose the port for PostgreSQL
+EXPOSE 5432
+
+CMD ["postgres", "-c", "shared_preload_libraries=pg_stat_statements"]
+
