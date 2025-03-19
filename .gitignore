@@ -3,6 +3,7 @@ serviceindex.json
 serviceindex.log
 django.dump.1719417916copy.sql
 copydata.sql
+.DS_Store
 
 # the repo this docker uses
 Operations_ServiceIndex_Django/
