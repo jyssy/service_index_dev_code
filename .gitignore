@@ -7,3 +7,5 @@ copydata.sql
 
 # the repo this docker uses
 Operations_ServiceIndex_Django/
+django-api-importer/
+Operations_Django_ACCESS_Account_Admin/
