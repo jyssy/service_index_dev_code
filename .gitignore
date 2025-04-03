@@ -4,8 +4,8 @@ serviceindex.log
 django.dump.1719417916copy.sql
 copydata.sql
 .DS_Store
+API_KEY
 
 # the repo this docker uses
 Operations_ServiceIndex_Django/
-django-api-importer/
 Operations_Django_ACCESS_Account_Admin/
