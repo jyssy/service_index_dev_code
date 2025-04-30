@@ -6,6 +6,6 @@ copydata.sql
 .DS_Store
 API_KEY
 
-# the repo this docker uses
+# Repos this docker uses
 Operations_ServiceIndex_Django/
-Operations_Django_ACCESS_Account_Admin/
+Operations_ACCESS_Django_User_Admin/
