@@ -5,6 +5,7 @@ django.dump.1719417916copy.sql
 copydata.sql
 .DS_Store
 API_KEY
+.venv
 
 # Repos this docker uses
 Operations_ServiceIndex_Django/
