@@ -4,6 +4,7 @@ serviceindex.log
 django.dump.1719417916copy.sql
 copydata.sql
 .DS_Store
+*/.DS_Store
 API_KEY
 .venv
 
