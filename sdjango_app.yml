@@ -5,17 +5,21 @@ services:
       dockerfile: Dockerfile.postgres
     restart: always
     environment:
+      POSTGRES_USER: postgres  
+      POSTGRES_PASSWORD: postgres     
+      POSTGRES_DB: postgres            
       DB_HOST: db
       DB_NAME: serviceindex1
       DB_USER: serviceindex_django
       DB_PASSWORD: Bbfsjrvneru&fg
     networks:
-      - sidjango_app
+      - service_index_dev_code
     ports:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
       - ./db_manuals/db_init.sh:/docker-entrypoint-initdb.d/db_init.sh
+      - ./django.dump.1719417916copy.sql:/docker-entrypoint-initdb.d/django.dump.1719417916copy.sql
     command: ["postgres", "-c", "shared_preload_libraries=pg_stat_statements"]
 
   django:
@@ -32,18 +36,18 @@ services:
       DJANGO_USER: serviceindex_django
       DJANGO_PASS: "Bbfsjrvneru&fg"
     volumes:
-      - /Users/jelambeadmin/Documents/access-ops/sidjango_app/Operations_ServiceIndex_Django:/Operations_ServiceIndex_Django
+      - /Users/jelambeadmin/Documents/access-sysops/service_index_dev_code/Operations_ServiceIndex_Django:/Operations_ServiceIndex_Django
       # - ./Pipfile:/tags/Pipfile
       # - ./Pipfile.lock:/tags/Pipfile.lock
-      - /Users/jelambeadmin/Documents/access-ops/sidjango_app/conf:/conf # Mount the si repo
+      - /Users/jelambeadmin/Documents/access-sysops/service_index_dev_code/conf:/conf # Mount the si repo
     depends_on:
       - db
     networks:
-      - sidjango_app
+      - service_index_dev_code
     container_name: django
 
 volumes:
-  pgdata:  # Named volume for PostgreSQL data persistence
+  pgdata: 
 
 networks:
-  sidjango_app:
+  service_index_dev_code:

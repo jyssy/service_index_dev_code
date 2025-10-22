@@ -26,7 +26,7 @@ RUN pip install pipenv && \
 
 RUN mkdir -p /conf
 # RUN mkdir -p /soft
-RUN chmod -R +x /conf
+RUN chmod -R 777 /conf
 
 # Set the environment variable
 ENV APP_CONFIG=/conf/serviceindex.json

@@ -1,0 +1,19 @@
+{
+    "DEBUG": true,
+    "ALLOWED_HOSTS": ["*"],
+    "DB_DATABASE": "serviceindex1",
+    "DB_PORT": "5432",
+    "DB_HOSTNAME_READ": "localhost",
+    "DB_HOSTNAME_WRITE": "localhost",
+    "DJANGO_USER": "serviceindex_django",
+    "DJANGO_PASS": "Bbfsjrvneru&fg",
+    "DJANGO_SECRET_KEY": "{{ DJANGO_SECRET_KEY }}",
+    "STATIC_ROOT": "{{ app_home }}/www/static",
+    "APP_LOG": "/conf/serviceindex.log",
+    "APP_VERSION": "{{ app_tag }}",
+    "SYSLOG_SOCK": "/var/run/syslog",
+    "API_BASE": ""
+}
+}
+
+
