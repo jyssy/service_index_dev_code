@@ -2,6 +2,7 @@
 serviceindex.json
 serviceindex.log
 django.dump.1719417916copy.sql
+django.dump.fixed.sql
 copydata.sql
 .DS_Store
 */.DS_Store
