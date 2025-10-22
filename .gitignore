@@ -7,6 +7,8 @@ copydata.sql
 */.DS_Store
 API_KEY
 .venv
+.idea/
+.idea
 
 # Repos this docker uses
 Operations_ServiceIndex_Django/
